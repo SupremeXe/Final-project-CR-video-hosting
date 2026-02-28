@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Видеохостинг</title>
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body class="page">
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">Видеохостинг CR</div>
+      <div class="header__user" id="userBox"></div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="auth" id="authSection">
+      <h2 class="auth__title">Вход</h2>
+
+      <form class="form auth__form" id="loginForm">
+        <label class="form__field">
+          <span class="form__label">Email</span>
+          <input class="form__input" name="email" type="email" autocomplete="email" />
+        </label>
+
+        <label class="form__field">
+          <span class="form__label">Пароль</span>
+          <input class="form__input" name="password" type="password" autocomplete="current-password" />
+        </label>
+
+        <button class="button button--primary" type="submit">Войти</button>
+        <div class="form__hint" id="loginMsg"></div>
+      </form>
+
+      <h2 class="auth__title auth__title--spaced">Регистрация</h2>
+
+      <form class="form auth__form" id="registerForm">
+        <label class="form__field">
+          <span class="form__label">Email</span>
+          <input class="form__input" name="email" type="email" autocomplete="email" />
+        </label>
+
+        <label class="form__field">
+          <span class="form__label">Пароль (мин. 6 символов)</span>
+          <input class="form__input" name="password" type="password" autocomplete="new-password" />
+        </label>
+
+        <button class="button button--secondary" type="submit">Создать аккаунт</button>
+        <div class="form__hint" id="registerMsg"></div>
+      </form>
+    </section>
+
+    <section class="app" id="appSection" hidden>
+      <div class="app__top">
+        <h2 class="app__title">Лента видео</h2>
+        <button class="button button--ghost" id="logoutBtn">Выйти</button>
+      </div>
+
+      <div class="upload">
+        <h3 class="upload__title">Загрузка видео</h3>
+
+        <form class="form upload__form" id="uploadForm">
+          <label class="form__field">
+            <span class="form__label">Название</span>
+            <input class="form__input" name="title" type="text" maxlength="255" />
+          </label>
+
+          <label class="form__field">
+            <span class="form__label">Файл видео (mp4/webm/ogv)</span>
+            <input class="form__input" name="video" type="file" accept="video/mp4,video/webm,video/ogg" />
+          </label>
+
+          <button class="button button--primary" type="submit">Загрузить</button>
+
+          <div class="upload__progress" hidden>
+            <div class="upload__bar" id="uploadBar" style="width:0%"></div>
+          </div>
+
+          <div class="form__hint" id="uploadMsg"></div>
+        </form>
+      </div>
+
+      <div class="feed">
+        <div class="feed__top">
+          <input class="form__input feed__search" id="searchInput" placeholder="Поиск по названию" />
+          <select class="form__input feed__sort" id="sortSelect">
+            <option value="date_desc">Сначала новые</option>
+            <option value="date_asc">Сначала старые</option>
+            <option value="title_asc">Название A-Z</option>
+            <option value="title_desc">Название Z-A</option>
+            <option value="likes_desc">Больше лайков</option>
+            <option value="likes_asc">Меньше лайков</option>
+          </select>
+          <button class="button button--secondary" id="searchBtn">Найти</button>
+        </div>
+
+        <div class="feed__grid" id="videosGrid"></div>
+        <div class="feed__empty" id="emptyState" hidden>Видео пока нет</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main.js" type="module"></script>
+</body>
+
+</html>

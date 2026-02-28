@@ -1,0 +1,347 @@
+:root {
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-200: #bfdbfe;
+  --blue-100: #eff6ff;
+  --blue-50: #eff6ff;
+  --gray-900: #0f172a;
+  --gray-700: #334155;
+  --gray-200: #e2e8f0;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--gray-900);
+  background: var(--blue-50);
+}
+
+.header {
+  background: linear-gradient(90deg, var(--gray-900), #111827);
+  color: var(--white);
+}
+
+.header__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.auth,
+.app {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.auth__title {
+  margin: 0 0 12px;
+  color: var(--blue-700);
+}
+
+.auth__title--spaced {
+  margin-top: 24px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form__field {
+  display: grid;
+  gap: 6px;
+}
+
+.form__label {
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.form__input {
+  height: 40px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 0 12px;
+  outline: none;
+}
+
+.form__input:focus {
+  border-color: var(--blue-600);
+}
+
+.form__hint {
+  min-height: 18px;
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.button {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0 14px;
+}
+
+.button--primary {
+  background: var(--blue-600);
+  color: var(--white);
+}
+
+.button--secondary {
+  background: var(--white);
+  border-color: var(--blue-600);
+  color: var(--blue-700);
+}
+
+.button--ghost {
+  background: transparent;
+  border-color: var(--gray-200);
+}
+
+.app__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__title {
+  margin: 0;
+  color: var(--blue-700);
+}
+
+.app__notice {
+  margin-top: 12px;
+  color: var(--gray-700);
+}
+
+@media (max-width: 600px) {
+  .header__logo {
+    font-size: 22px;
+  }
+}
+
+/* UI loading + feed */
+
+.upload {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  background: var(--blue-50);
+}
+
+.upload__title {
+  margin: 0 0 12px;
+  color: var(--blue-700);
+}
+
+.upload__progress {
+  height: 10px;
+  border-radius: 10px;
+  background: var(--gray-200);
+  overflow: hidden;
+}
+
+.upload__bar {
+  height: 100%;
+  background: var(--blue-600);
+  width: 0%;
+}
+
+.feed {
+  margin-top: 16px;
+}
+
+.feed__top {
+  display: grid;
+  grid-template-columns: 1fr 200px 120px;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.feed__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.video-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.video-card__body {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.video-card__title {
+  margin: 0;
+  font-size: 16px;
+  color: var(--gray-900);
+}
+
+.video-card__meta {
+  font-size: 13px;
+  color: var(--gray-700);
+}
+
+.video-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-card__likes {
+  font-size: 14px;
+  color: var(--gray-700);
+}
+
+.feed__empty {
+  margin-top: 12px;
+  color: var(--gray-700);
+}
+
+@media (max-width: 900px) {
+  .feed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feed__top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .feed__grid {
+    grid-template-columns: 1fr;
+  }
+  .feed__top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Video fix */
+.video-card video {
+  width: 100%;
+  height: 420px;
+  display: block;
+  background: #000;
+  object-fit: cover;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Video в полноэкранном режиме*/
+.video-card video:fullscreen {
+  object-fit: contain;
+  background: #000;
+}
+
+.video-card video:-webkit-full-screen {
+  object-fit: contain;
+  background: #000;
+}
+
+.video-card video:-moz-full-screen {
+  object-fit: contain;
+  background: #000;
+}
+
+@media (max-width: 600px) {
+  .video-card video {
+    height: 360px;
+  }
+}
+
+/* Upload form */
+.upload__form {
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+
+.upload__form .form__field:last-of-type {
+  grid-column: 1 / -1;
+}
+
+.upload__form .button {
+  grid-column: 1 / -1;
+  height: 44px;
+  font-weight: 700;
+}
+
+.form__input[type="file"] {
+  padding: 8px 12px;
+  height: auto;
+}
+
+.upload__progress {
+  grid-column: 1 / -1;
+}
+
+.upload__form .form__hint {
+  font-size: 14px;
+  color: var(--red-600);
+  text-align: center;
+}
+
+.upload__form .upload__progress {
+  margin-top: 16px;
+  background-color: var(--blue-200);
+}
+
+/* Стили для инпута "Выберите файл" */
+
+.form__input[type="file"] {
+  background-color: var(--blue-100); /* Голубой фон */
+  color: var(--blue-700); /* Синий текст */
+  padding: 8px 12px;
+  border: 1px solid var(--blue-600); /* Синяя рамка */
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.form__input[type="file"]::-webkit-file-upload-button {
+  background-color: var(--blue-700); /* Кнопка внутри инпута */
+  color: white;
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form__input[type="file"]:hover {
+  background-color: var(--blue-200); /* Цвет фона при наведении */
+}
+
+.form__input[type="file"]:focus {
+  outline: none;
+  border-color: var(--blue-600); /* Синяя рамка при фокусе */
+}
