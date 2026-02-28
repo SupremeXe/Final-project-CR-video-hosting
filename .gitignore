@@ -1,5 +1,5 @@
 # videos
-# /videos/*
+/videos/*
 !/videos/.gitkeep
 
 # system
@@ -9,3 +9,4 @@ Thumbs.db
 # editor
 .vscode/
 .idea/
+node_modules/
